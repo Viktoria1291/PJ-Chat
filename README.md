@@ -1,4 +1,4 @@
-# PJ-3-Chat
+# PJ-Chat
 ## front-end
 * Создан сервис для работы с сообщениями на основе эхо-сервера (wss://echo-ws-service.herokuapp.com). 
 
