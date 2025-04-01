@@ -5,7 +5,7 @@ function submitForm() {
     console.log(name);
 
     if (name != '') {
-        location.href = "index.html";
+        location.href = "chat.html";
     } else {
         alert("Enter your name!");
     }
