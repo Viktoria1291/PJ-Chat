@@ -1,4 +1,4 @@
-const url = "wss://echo-ws-service.herokuapp.com";
+const url = "wss://echo.websocket.org";
 
 const text_message = document.getElementById('text_message');
 const send_btn = document.getElementById('send_btn');
@@ -18,7 +18,7 @@ websocket.onclose = function (evt) {
   console.log("DISCONNECTED");
 };
 websocket.onmessage = function (evt) {
-  writeToScreen('<span style="color: white;">Herokuapp answer:<br> ' + evt.data + '</span>', 'flex-start')
+  writeToScreen('<span style="color: white;">Answer:<br> ' + evt.data + '</span>', 'flex-start')
 };
 websocket.onerror = function (evt) {
   writeToScreen('<span style="color: red;">ERROR:<br></span> ' + evt.data, 'flex-start')
