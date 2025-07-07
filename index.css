@@ -14,14 +14,11 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-
-
 .form {
   background-color: #353f7b;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 395px;
+  height: 360px;
   width: 360px;
   padding: 30px;
   text-align: center;
@@ -62,7 +59,7 @@ input {
 
 .button {
   height: 33px;
-  width: 121px;
+  width: 50%;
   background-color: rgb(94, 126, 178);
   border-radius: 10px;
   color: #eee;
@@ -75,42 +72,35 @@ input {
 
 
 /*Адаптивная верстка: */
-
-@media (min-width: 1280px) {
+@media (min-height: 320px) and (max-height: 400px) {
   .form {
-    height: 420px;
-    width: 384px;
-  }
+      height: 280px;
+      padding: 20px;
+    }
 
   .title {
-    font-size: 43.5px;
+    margin-top: 5px;
   }
 
   .subtitle {
-    font-size: 19.5px;
-    margin-top: 12px;
+    margin-top: 5px;
   }
 
   input {
-    font-size: 21.5px;
-    height: 60px;
+    margin-top: 30px;
+    height: 40px;
+    font-size: 16px;
   }
 
   .button {
     height: 36px;
     width: 132px;
-    margin-top: 24px;
-    font-size: 17px;
+    margin-top: 20px;
+    font-size: 18px;
   }
 }
 
-
 @media (min-width: 768px) and (max-width: 1023px) {
-  .form {
-    height: 367.5px;
-    width: 336px;
-  }
-
   .title {
     font-size: 38px;
   }
@@ -127,88 +117,33 @@ input {
 
   .button {
     height: 31.5px;
-    width: 116px;
     margin-top: 21px;
     font-size: 15px;
   }
 }
 
-
-@media (min-width: 600px) and (max-width: 767px) {
+@media (min-width: 480px) and (max-width: 767px) {
   .form {
-    height: 385px;
-    width: 352px;
+      width: 320px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+  .form {
+    width: 80vw;
   }
 
   .title {
-    font-size: 40px;
+    font-size: 36px;
   }
 
   .subtitle {
     font-size: 18px;
-    margin-top: 11px;
-  }
-
-  input {
-    font-size: 20px;
-    height: 55px;
-  }
-
-  .button {
-    height: 33px;
-    width: 121px;
-    margin-top: 22px;
-    font-size: 15.5px;
-  }
-}
-
-
-@media (min-width: 480px) and (max-width: 599px) {
-  .form {
-    height: 402.5px;
-    width: 368px;
-  }
-
-  .title {
-    font-size: 41.5px;
-  }
-
-  .subtitle {
-    font-size: 18.5px;
-    margin-top: 11.5px;
-  }
-
-  input {
-    font-size: 21px;
-    height: 57.5px;
-  }
-
-  .button {
-    height: 34.5px;
-    width: 126.5px;
-    margin-top: 23px;
-    font-size: 16px;
-  }
-}
-
-
-@media (min-width: 320px) and (max-width: 479px) {
-  .form {
-    height: 420px;
-    width: 290px;
-  }
-
-  .title {
-    font-size: 43.5px;
-  }
-
-  .subtitle {
-    font-size: 19.5px;
     margin-top: 12px;
   }
 
   input {
-    font-size: 21.5px;
+    font-size: 16px;
     height: 60px;
   }
 
@@ -216,6 +151,7 @@ input {
     height: 36px;
     width: 132px;
     margin-top: 24px;
-    font-size: 17px;
+    font-size: 18px;
   }
 }
+

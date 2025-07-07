@@ -14,17 +14,15 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-
-
 .container {
   display: flex;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1040px;
-  justify-content: space-between;
+  width: 90vw;
+  height: 90vh;
+  gap: 5vw;
 }
 
 #userName {
@@ -33,29 +31,60 @@ body {
   box-sizing: border-box;
   min-height: 50px;
   height: max-content;
-  padding: 15px;
+  padding: 15px 10px;
   width: 120px;
   word-break: break-all;
   color: #eee;
   text-align: center;
   font-size: 14px;
+  flex-shrink: 0;
+}
+
+.chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 }
 
 #text_message {
   height: 50px;
   max-height: 110px;
-  width: 650px;
+  height: auto;
+  flex: 1;
   border: 3px solid rgb(53, 63, 123);
   background-color: #b8c5eb;
   color: #4b4949;
   border-radius: 10px;
   outline: none;
   padding: 12px;
+  overflow-y: hidden; /* Скрываем скролл по умолчанию */
+  resize: none; /* Отключаем изменение размера */
+}
+
+/* Показываем скролл только при переполнении и фокусе */
+#text_message:is(:focus) {
+  overflow-y: auto;
+}
+
+/* Стилизация скроллбара (опционально) */
+#text_message::-webkit-scrollbar {
+  width: 6px;
+}
+
+#text_message::-webkit-scrollbar-thumb {
+  background:linear-gradient(180deg, var(--bg-color), #9EB1E9);
+  border-radius: 3px;
+}
+
+#text_message::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .button {
@@ -67,20 +96,20 @@ body {
   border: none;
   cursor: pointer;
   margin-top: 10px;
+  flex-shrink: 0;
 }
 
 #chat_window {
-  height: 390px;
-  width: 900px;
+  flex: 1;
   border: 3px solid rgb(53, 63, 123);
   background-color: #b8c5eb;
   border-radius: 10px;
   margin-top: 15px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #chat_window::-webkit-scrollbar {
-  width: 10px;
+  width: 7px;
 }
 
 #chat_window::-webkit-scrollbar-track {
@@ -91,7 +120,7 @@ body {
 
 #chat_window::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: linear-gradient(180deg, #2EC4B6, #005bea);
+  background:linear-gradient(180deg, var(--bg-color), #9EB1E9);
 }
 
 #chat_messages {
@@ -114,80 +143,42 @@ body {
 
 /*Адаптивная верстка: */
 
-@media (max-width: 1279.5px) {
+@media (max-width: 1023px) {
   .container {
-    display: block;
-    width: 900px;
+    flex-direction: column;
+    gap: 0;
   }
-
+  
   #userName {
     margin-bottom: 15px;
-    min-width: 120px;
-    width: max-content;
+    width: 120px;
+  }
+  
+  .chat {
+    width: 100%;
+    height: calc(100% - 70px);
   }
 }
 
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .container {
-    width: 735px;
+@media (max-width: 767px) {
+  .header {
+    flex-wrap: wrap;
   }
-
+  
   #text_message {
-    width: 500px;
+    width: 100%;
   }
-
-  #chat_window {
-    width: 735px;
+  
+  .button {
+    width: 80px;
   }
 }
 
-
-@media (min-width: 600px) and (max-width: 767px) {
-  .container {
-    width: 570px;
-  }
-
+@media (max-width: 479px) {
   #text_message {
-    width: 350px;
-  }
-
-  #chat_window {
-    width: 570px;
-  }
-}
-
-
-@media (min-width: 480px) and (max-width: 599px) {
-  .container {
-    width: 450px;
-  }
-
-  #text_message {
-    width: 230px;
-  }
-
-  #chat_window {
-    width: 450px;
-  }
-}
-
-
-@media (min-width: 320px) and (max-width: 479px) {
-  .container {
-    width: 290px;
-  }
-
-  #text_message {
-    width: 160px;
     max-height: 70px;
   }
-
-  #chat_window {
-    width: 290px;
-    height: 300px;
-  }
-
+  
   .button {
     width: 60px;
   }
